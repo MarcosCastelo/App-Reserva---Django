@@ -9,6 +9,10 @@ table {
     padding: 5px;
   }
 
-  .titulo-filme{
-    display:inline-block; 
+  .filme li {
+    list-style-type: none;
+    list-style-position:inside;
+    border: 1px solid #a0a0a0;
+    padding: 20px;
   }
+

@@ -5,8 +5,6 @@
 
 <h1>Expandr Cine</h1>
 
-{% if filmes %}
-
 <ul class="nav nav-tabs">
     <li><a href="/">Hoje</a></li>
     {% for dia in dias %}
@@ -14,17 +12,21 @@
     {% endfor %}
   </ul>
 
+{% if filmes %}
+
 {% for filme in filmes %}
 <div class="filme">
             <h3></li>{{ filme.nome }}</h3>
-            <span>Classificação: {{ filme.classificacao }}</span>
+            <span>Duracao: {{ filme.duracao }} minutos</span>
             <hr>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                 <ul class="navbar navbar-nav">
                     {% for sessao in programacao %}
                         {% if sessao.filme == filme %}
-                            <li><a href="detail/{{ sessao.id }}">{{ sessao.horario }}</a></li>    
+                            <li class="nav-item">
+                                <a class="nav-link" href="detail/{{ sessao.id }}">{{ sessao.horario }}</a>
+                            </li>    
                         {% endif %}
                     {% endfor %}
                 </ul>

@@ -1,12 +1,25 @@
 {% extends 'reserva/base.html' %} {% load i18n %} {% load static %}
 {% block body %}
+<h1>{{ filme.nome }}</h1>
+<div class="filme">
 <nav class="navbar navbar-default">
-        <h2 class="nav navbar-nav">{{ filme.nome }}</h2>
-        <h2 class="nav navbar-nav">{{ sessao.horario   }}</h2>
-  </nav>
+<ul class="navbar navbar-nav left">
+    <li class="nav-item">
+        <h3>{{ sessao.sala.nome }}</h3>
+    </li>
+    <li class="nav-item">
+            <h3>{{ sessao.horario }}</h3>
+    </li>
+
+    <li class="nav-item">
+            <h3>{{ sessao.pub_data }}</h3>
+    </li>
+</ul>
+</nav>
+</div>
 <form action="{{ sessao.id }}/reserva" method="POST">
 {% csrf_token %}
-Nome do cliente:<input required type="text" name="nome" id="nome">
+Nome do cliente: <input required type="text" name="nome" id="nome">
 <table class="poltronas">
 {% for fileiras in poltronas %}
     <tr>
