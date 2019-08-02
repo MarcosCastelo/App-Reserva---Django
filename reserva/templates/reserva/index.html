@@ -1,0 +1,20 @@
+{% load i18n %} {% load static %} 
+
+{% block body %}
+
+<h1>Expandr Cine</h1>
+
+{% if sessao_list %}
+<ul>
+    {% for programacao in sessao_list %}
+        {% for filmes in programacao %}
+            <li><p><b>{{ filmes.filme.nome }}</b></p></li>
+            <li><p><b>{{ filmes.sala.nome }}</b></p></li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Sem sessões abertas no momento</p>
+{% endif %}
+
+{% endblock %} 
