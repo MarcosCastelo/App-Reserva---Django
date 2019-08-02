@@ -1,20 +1,33 @@
-{% load i18n %} {% load static %} 
+{% extends 'reserva/base.html' %} {% load i18n %} {% load static %}
+
 
 {% block body %}
 
 <h1>Expandr Cine</h1>
 
-{% if sessao_list %}
-<ul>
-    {% for programacao in sessao_list %}
-        {% for filmes in programacao %}
-            <li><p><b>{{ filmes.filme.nome }}</b></p></li>
-            <li><p><b>{{ filmes.sala.nome }}</b></p></li>
-        {% endfor %}
-    {% endfor %}
-</ul>
+{% if filmes %}
+{% for filme in filmes %}
+<div class="filme">
+            <h3></li>{{ filme.nome }}</h3>
+            <span>Classificação: {{ filme.classificacao }}</span>
+            <hr>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                <ul class="navbar navbar-nav">
+                    {% for sessao in programacao %}
+                        {% if sessao.filme == filme %}
+                            <li><a>{{ sessao.horario }}</a></li>    
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            </nav>
+</div>
+<br>
+{% endfor %}
+
 {% else %}
-    <p>Sem sessões abertas no momento</p>
+<p>Sem sessões abertas no momento</p>
 {% endif %}
 
-{% endblock %} 
+{% endblock %}
