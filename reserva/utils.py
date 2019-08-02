@@ -1,7 +1,11 @@
 import datetime
 
 HOJE = datetime.date.today()
-FAIXA_DE_TEMPO = HOJE + datetime.timedelta(days=7)
+
+
+
+
+
 
 CLASSIFICACAO_INDICATIVA_CHOICES = (
     (1, "L"),

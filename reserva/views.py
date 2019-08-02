@@ -21,10 +21,19 @@ def programacao(request, data):
             programacao.append(sessao)
 
         filmes = list(set(filmes))
+
+        FAIXA_DE_TEMPO = list()
+        for i in range(1,8):
+            dia = HOJE + datetime.timedelta(days=i)
+            FAIXA_DE_TEMPO.append(dia.strftime("%d-%m-%Y"))
+        
+        print(FAIXA_DE_TEMPO)
+
             
         return render(request, template_name, {
             'filmes' : filmes,
-            'programacao' : programacao
+            'programacao' : programacao,
+            'dias' : FAIXA_DE_TEMPO,
         })
 
     except:    
@@ -37,10 +46,17 @@ def programacao(request, data):
             programacao.append(sessao)
 
         filmes = list(set(filmes))
-            
+        
+        FAIXA_DE_TEMPO = list()
+        for i in range(1,8):
+            dia = HOJE + datetime.timedelta(days=i)
+            FAIXA_DE_TEMPO.append(dia.strftime("%d-%m-%Y"))
+
+
         return render(request, template_name, {
             'filmes' : filmes,
-            'programacao' : programacao
+            'programacao' : programacao,
+            'dias' : FAIXA_DE_TEMPO
         })
 
 
@@ -55,10 +71,16 @@ def index(request):
         programacao.append(sessao)
 
     filmes = list(set(filmes))
+
+    FAIXA_DE_TEMPO = list()
+    for i in range(1,8):
+        dia = HOJE + datetime.timedelta(days=i)
+        FAIXA_DE_TEMPO.append(dia.strftime("%d-%m-%Y"))
         
     return render(request, template_name, {
         'filmes' : filmes,
-        'programacao' : programacao
+        'programacao' : programacao,
+        'dias' : FAIXA_DE_TEMPO,
     })
 
 
