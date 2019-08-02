@@ -1,0 +1,24 @@
+{% extends 'reserva/base.html' %} {% load i18n %} {% load static %}
+{% block body %}
+<nav class="navbar navbar-default">
+        <h2 class="nav navbar-nav">{{ filme.nome }}</h2>
+        <h2 class="nav navbar-nav">{{ sessao.horario   }}</h2>
+  </nav>
+<form action="{{ sessao.id }}/reserva" method="POST">
+{% csrf_token %}
+Nome do cliente:<input required type="text" name="nome" id="nome">
+<table class="poltronas">
+{% for fileiras in poltronas %}
+    <tr>
+        {% for poltrona in fileiras %}
+        {% if poltrona.cliente %}
+            <td><button class="btn btn-danger disabled" type="button">{{ poltrona.posicao }}</button></td>
+        {% else %}
+            <td><button id='poltrona_id' class="btn btn-success active" type='submit' name = 'poltrona_id' value = '{{ poltrona.id }}'>{{ poltrona.posicao }}</button></td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+</form>
+{% endblock %}

@@ -1,1 +1,14 @@
 @CHARSET "UTF-8";
+
+table {
+  border-collapse: separate; 
+  border-spacing: 20px;
+  }
+
+  td {
+    padding: 5px;
+  }
+
+  .titulo-filme{
+    display:inline-block; 
+  }

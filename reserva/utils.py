@@ -23,3 +23,5 @@ TECNOLOGIAS_CHOICES = (
     (1, '2D'),
     (2, '3D'),
 )
+
+

@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from reserva import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('<str:data>', views.programacao, name='programacao'),
+    path('detail/<int:sessao_id>', views.detail, name='detail'),
+    path('detail/<int:sessao_id>/reserva', views.reserva, name='reserva'),
 ]
